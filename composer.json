@@ -1,0 +1,26 @@
+{
+    "name": "andrey-vasin/laravel-hashing-bitrix",
+    "type": "library",
+    "keywords": ["laravel", "hashing", "bitrix", "hasher"],
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Andrey Vasin"
+        }
+    ],
+    "require": {
+        "illuminate/support": "^5.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "AndreyVasin\\LaravelHashingBitrix\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AndreyVasin\\LaravelHashingBitrix\\LaravelHashingBitrixServiceProvider"
+            ]
+        }
+    }
+}
