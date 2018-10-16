@@ -34,8 +34,7 @@ class BitrixHasher implements HasherContract
         } else {
             $saltLength = $strLength - 32;
             $salt = substr($hashedValue, 0, $saltLength);
-            $hash = substr($hashedValue, $saltLength);
-            return $hashedValue === $salt . md5($salt . $hash);
+            return $hashedValue === $salt . md5($salt . $value);
         }
     }
 
