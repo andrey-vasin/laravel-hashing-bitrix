@@ -29,23 +29,22 @@ class BitrixHasher implements HasherContract
         $strLength = strlen($hashedValue);
         if ($strLength < 32) {
             return false;
-        }
-        else if ($strLength === 32) {
+        } else if ($strLength === 32) {
             return $hashedValue === md5($value);
         } else {
             $saltLength = $strLength - 32;
             $salt = substr($hashedValue, 0, $saltLength);
             $hash = substr($hashedValue, $saltLength);
-            return $hash === $salt . md5($hash);
+            return $hash === $salt . md5($salt . $hash);
         }
     }
-    
+
     public function needsRehash($hashedValue, array $options = [])
     {
         return false;
     }
 
-    private function randString($length = 6,  $alphabet = '1234567890qwertyuiopasdfghjklzxcvbnm')
+    private function randString($length = 6, $alphabet = '1234567890qwertyuiopasdfghjklzxcvbnm')
     {
         $alphabet = str_repeat($alphabet, (int)($length / mb_strlen($alphabet)) + 1);
         return mb_substr(str_shuffle($alphabet), 0, $length);
