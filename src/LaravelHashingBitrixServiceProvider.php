@@ -13,7 +13,7 @@ class LaravelHashingBitrixServiceProvider extends ServiceProvider
     public function boot()
     {
         app('hash')->extend('bitrix',  function () {
-            return new Md5Hasher();
+            return new BitrixHasher();
         });
     }
 }
